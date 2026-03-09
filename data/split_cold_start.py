@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 print("1. Loading original dataset...")
-df = pd.read_csv('data/ddi_interactions.csv') # تأكد من المسار الصحيح
+df = pd.read_csv('/kaggle/working/Unified-CSCoDTA/data/ddi_interactions.csv') # تأكد من المسار الصحيح
 
 print("2. Extracting unique drugs...")
 # استخراج كل الأدوية الفريدة في قاعدة البيانات
@@ -26,8 +26,8 @@ train_df = df[df['SMILES1'].isin(seen_set) & df['SMILES2'].isin(seen_set)]
 test_df = df[~df.index.isin(train_df.index)]
 
 print("5. Saving new datasets...")
-train_df.to_csv('data/ddi_train_cold.csv', index=False)
-test_df.to_csv('data/ddi_test_cold.csv', index=False)
+train_df.to_csv('/kaggle/working/Unified-CSCoDTA/data/ddi_train_cold.csv', index=False)
+test_df.to_csv('/kaggle/working/Unified-CSCoDTA/data/ddi_test_cold.csv', index=False)
 
 print("\n✅ Splitting Complete!")
 print("-" * 30)
