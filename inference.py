@@ -229,8 +229,8 @@ def train_predict(new_args):
     
     #Cold-start DDI dataset preparation
     print("Loading Cold Start Datasets...")
-    ddi_train_dataset = DDIDataset('data/ddi_train_cold.csv')
-    ddi_test_dataset = DDIDataset('data/ddi_test_cold.csv')
+    ddi_train_dataset = DDIDataset('/kaggle/working/Unified-CSCoDTA/data/ddi_train_cold.csv')
+    ddi_test_dataset = DDIDataset('/kaggle/working/Unified-CSCoDTA/data/ddi_test_cold.csv')
     
     ddi_train_loader = torch.utils.data.DataLoader(ddi_train_dataset, batch_size=args.batch_size, shuffle=True, collate_fn=ddi_collate)
     ddi_test_loader = torch.utils.data.DataLoader(ddi_test_dataset, batch_size=args.batch_size, shuffle=False, collate_fn=ddi_collate)
@@ -384,5 +384,6 @@ if __name__ == '__main__':
         algo_args = get_defaults_yaml_args(new_args["algo"])
     new_args.update(algo_args)
     update_args(unparsed_dict, new_args)
+
 
     train_predict(new_args)
